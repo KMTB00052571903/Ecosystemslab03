@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    // Estructura de archivos
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Configuración de entorno
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2020",
+    "types": ["node"],
+
+    // Salidas adicionales
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Opciones estrictas de tipado
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Opciones recomendadas
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Opciones de estilo
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
