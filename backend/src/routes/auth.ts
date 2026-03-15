@@ -3,7 +3,10 @@ import { register, login } from '../controllers/authController.js'
 
 const router = Router()
 
+// Registro de usuario (si es store, crea tienda asociada)
 router.post('/register', register)
+
+// Login de usuario (devuelve datos + rol)
 router.post('/login', login)
 
 export default router
