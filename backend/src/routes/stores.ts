@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getStores, toggleStore } from '../controllers/storeController.js'
+import { getStores, toggleStore } from '../controllers/storeController'
 
 const router = Router()
 

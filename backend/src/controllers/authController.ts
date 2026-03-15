@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { supabase } from '../db.js'
+import { supabase } from '../db'
 
 export async function register(req: Request, res: Response) {
   const { name, email, password, role, storeName } = req.body

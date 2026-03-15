@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { supabase } from '../db.js'
+import { supabase } from '../db'
 
 // Crear producto
 export async function createProduct(req: Request, res: Response) {

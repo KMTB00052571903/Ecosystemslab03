@@ -1,14 +1,13 @@
-import express from 'express'
+import express, { Application } from 'express'
 import cors from 'cors'
-import type { Application } from 'express'
 
-import authRoutes from './routes/auth.js'
-import storeRoutes from './routes/stores.js'
-import productRoutes from './routes/products.js'
-import orderRoutes from './routes/orders.js'
+import authRoutes from './routes/auth'
+import storeRoutes from './routes/stores'
+import productRoutes from './routes/products'
+import orderRoutes from './routes/orders'
 
-import { requireAuth } from './middleware/auth.js'
-import { errorHandler } from './middleware/errorHandler.js'
+import { requireAuth } from './middleware/auth'
+import { errorHandler } from './middleware/errorHandler'
 
 const app: Application = express()
 
@@ -26,6 +25,12 @@ app.use('/orders', requireAuth, orderRoutes)
 // Middleware global de manejo de errores
 app.use(errorHandler)
 
-app.listen(3000, () => {
-  console.log('Backend running on http://localhost:3000')
-})
+// ✅ Exportar para Vercel
+export default app
+
+// ✅ Solo escuchar en local
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(3000, () => {
+    console.log('Backend running on http://localhost:3000')
+  })
+}

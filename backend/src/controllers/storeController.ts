@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { supabase } from '../db.js'
+import { supabase } from '../db'
 
 // Listar todas las tiendas
 export async function getStores(req: Request, res: Response) {

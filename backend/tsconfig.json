@@ -5,10 +5,10 @@
     "outDir": "./dist",
 
     // Configuración de entorno
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "ES2020",
-    "types": ["node"],
+   "module": "CommonJS",
+"moduleResolution": "Node",
+   "target": "ES2020",
+   "types": ["node"],
 
     // Salidas adicionales
     "sourceMap": true,
@@ -27,7 +27,7 @@
 
     // Opciones de estilo
     "isolatedModules": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

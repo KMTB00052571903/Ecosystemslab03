@@ -3,7 +3,7 @@ import {
   createOrder, 
   getOrders, 
   updateOrderStatus 
-} from '../controllers/orderController.js'
+} from '../controllers/orderController'
 
 const router = Router()
 
