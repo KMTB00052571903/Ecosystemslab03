@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Rappi - Tienda</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Fuentes y iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1 class="logo">🏪 Mini Rappi</h1>
+        <p class="subtitle">Gestión de Tienda</p>
+      </div>
+      <button id="logoutBtn" class="btn secondary">Cerrar Sesión</button>
+    </header>
+
+    <!-- Login/Register -->
+    <section id="loginSection" class="section">
+      <div class="card">
+        <h2>Acceso Tienda</h2>
+        <p>Inicia sesión o regístrate para administrar tu tienda</p>
+        <small>O regresa al <a href="/">menú</a></small>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="login">Iniciar Sesión</button>
+          <button class="tab" data-tab="register">Registrarse</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="form active">
+          <label>Usuario <input type="text" id="loginUsername" required /></label>
+          <label>Contraseña <input type="password" id="loginPassword" required /></label>
+          <button type="submit" class="btn primary">Entrar</button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" class="form">
+          <label>Usuario <input type="text" id="registerUsername" required /></label>
+          <label>Contraseña <input type="password" id="registerPassword" required /></label>
+          <label>Nombre Tienda <input type="text" id="registerStoreName" required /></label>
+          <label>Dirección <input type="text" id="registerAddress" required /></label>
+          <button type="submit" class="btn primary">Registrarse</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Main Section -->
+    <section id="mainSection" class="section hidden">
+      <div class="user-info">
+        <h3>¡Hola, <span id="storeName">Tienda</span>!</h3>
+        <p>Administra tus productos y pedidos</p>
+      </div>
+
+      <!-- Store Management -->
+      <section id="storeSection" class="content active">
+        <header class="section-header">
+          <h2><i class="ri-store-2-line"></i> Panel de Tienda</h2>
+        </header>
+
+        <!-- Tabs -->
+        <nav class="tabs">
+          <button id="productsTab" class="tab active">Productos</button>
+          <button id="ordersTab" class="tab">Pedidos</button>
+        </nav>
+
+        <!-- Products Grid -->
+        <div id="productsGrid" class="grid"></div>
+
+        <!-- Orders Grid -->
+        <div id="ordersGrid" class="grid hidden"></div>
+
+        <!-- Feedback -->
+        <div id="loading" class="overlay hidden">
+          <div class="spinner"></div>
+          <p>Cargando datos...</p>
+        </div>
+        <div id="noData" class="overlay hidden">
+          <i class="ri-information-line"></i>
+          <h3>No hay información disponible</h3>
+          <p>Los productos o pedidos aparecerán aquí</p>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
