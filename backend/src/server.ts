@@ -62,3 +62,8 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('Backend running on http://localhost:3000')
   })
 }
+
+// Endpoint de prueba ULTRA simple
+app.get('/test', (req, res) => {
+  res.send('Funciona!');
+});
