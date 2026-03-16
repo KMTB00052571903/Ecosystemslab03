@@ -18,6 +18,17 @@ const app: Application = express()
 app.use(cors())
 app.use(express.json())
 
+// Endpoint de prueba ultra simple
+app.get('/test', (req, res) => {
+  res.send('✅ Funciona!');
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK' });
+});
+
+
+
 // RUTA RAÍZ
 app.get('/', (req, res) => {
   console.log('📍 Ruta / llamada');

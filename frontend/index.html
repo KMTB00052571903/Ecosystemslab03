@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Rappi - Plataforma de Delivery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Fuentes y iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1 class="logo">🚀 Mini Rappi</h1>
+        <p class="subtitle">Plataforma de Delivery</p>
+      </div>
+      <a href="https://github.com/KMTB00052571903/Ecosystemslab03" target="_blank" class="btn" style="background: transparent; border: 2px solid #fff;">
+        <i class="ri-github-fill"></i> GitHub
+      </a>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="section">
+      <div class="card" style="text-align: center; padding: 40px;">
+        <h2 style="font-size: 2rem; margin-bottom: 15px;">¡Bienvenido a Ecosystems Rappi! 🎉</h2>
+        <p style="color: var(--rappi-gray-dark); max-width: 600px; margin: 0 auto 30px;">
+          Una plataforma completa de delivery con tres roles: Consumidores, Repartidores y Tiendas. 
+          Selecciona tu rol para comenzar.
+        </p>
+        
+        <!-- Stats -->
+        <div class="stats-container">
+          <div class="stat-box">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Roles Diferentes</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Pedidos Ilimitados</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Disponibilidad</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roles Section -->
+    <section class="section">
+      <div class="tabs" style="justify-content: center; margin-bottom: 20px;">
+        <span class="tab active">Selecciona tu rol</span>
+      </div>
+
+      <div class="roles-grid">
+        <!-- Consumidor -->
+        <a href="/consumer" class="role-card">
+          <div class="role-icon">🛒</div>
+          <div class="role-title">Consumidor</div>
+          <div class="role-description">
+            Explora restaurantes, arma tu carrito y recibe tu comida favorita en la puerta de tu casa.
+          </div>
+          <span class="role-badge">Ordenar Ahora</span>
+        </a>
+
+        <!-- Repartidor -->
+        <a href="/delivery" class="role-card">
+          <div class="role-icon">🚚</div>
+          <div class="role-title">Repartidor</div>
+          <div class="role-description">
+            Conviértete en repartidor, acepta pedidos y gana dinero llevando alegrías a los clientes.
+          </div>
+          <span class="role-badge">Comenzar a Repartir</span>
+        </a>
+
+        <!-- Tienda -->
+        <a href="/store" class="role-card">
+          <div class="role-icon">🏪</div>
+          <div class="role-title">Tienda</div>
+          <div class="role-description">
+            Registra tu negocio, crea productos y llega a más clientes con nuestra plataforma.
+          </div>
+          <span class="role-badge">Registrar Tienda</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div class="card">
+          <h3><i class="ri-information-line" style="color: var(--rappi-orange);"></i> ¿Cómo funciona?</h3>
+          <p style="margin-top: 15px;">1. Selecciona tu rol</p>
+          <p>2. Inicia sesión o regístrate</p>
+          <p>3. Disfruta de la plataforma</p>
+        </div>
+        <div class="card">
+          <h3><i class="ri-heart-line" style="color: var(--rappi-orange);"></i> Características</h3>
+          <p style="margin-top: 15px;">✅ Backend con Supabase</p>
+          <p>✅ Autenticación por roles</p>
+          <p>✅ Gestión de pedidos en tiempo real</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: 40px; padding: 20px; color: var(--rappi-gray-dark);">
+      <p>⚡ Laboratorio 3 - Arquitectura de Software ⚡</p>
+      <p style="margin-top: 10px;">
+        <a href="#" onclick="checkBackend(); return false;" style="color: var(--rappi-orange); text-decoration: none;">
+          <i class="ri-health-book-line"></i> Verificar Backend
+        </a> 
+        | 
+        <a href="https://github.com/KMTB00052571903/Ecosystemslab03" target="_blank" style="color: var(--rappi-orange); text-decoration: none;">
+          <i class="ri-github-fill"></i> Repositorio
+        </a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Loading overlay (usando el mismo estilo de consumer) -->
+  <div id="loading" class="overlay hidden">
+    <div class="spinner"></div>
+    <p>Verificando backend...</p>
+  </div>
+
+  <!-- Error message -->
+  <div id="errorMessage" class="overlay hidden">
+    <p id="errorText"></p>
+  </div>
+
+  <!-- Success message -->
+  <div id="successMessage" class="overlay hidden">
+    <p id="successText"></p>
+  </div>
+
+  <script>
+    // Función para verificar el backend
+    async function checkBackend() {
+      const loading = document.getElementById('loading');
+      const errorMsg = document.getElementById('errorMessage');
+      const errorText = document.getElementById('errorText');
+      const successMsg = document.getElementById('successMessage');
+      const successText = document.getElementById('successText');
+
+      loading.classList.remove('hidden');
+
+      try {
+        const response = await fetch('https://ecosystemslab03-backend.vercel.app/health');
+        const data = await response.json();
+        
+        loading.classList.add('hidden');
+        
+        if (response.ok) {
+          successText.textContent = '✅ Backend conectado correctamente';
+          successMsg.classList.remove('hidden');
+          setTimeout(() => successMsg.classList.add('hidden'), 3000);
+        } else {
+          errorText.textContent = '⚠️ Error al conectar con el backend';
+          errorMsg.classList.remove('hidden');
+          setTimeout(() => errorMsg.classList.add('hidden'), 3000);
+        }
+      } catch (error) {
+        loading.classList.add('hidden');
+        errorText.textContent = '❌ Backend no disponible';
+        errorMsg.classList.remove('hidden');
+        setTimeout(() => errorMsg.classList.add('hidden'), 3000);
+      }
+    }
+
+    // Verificar automáticamente al cargar
+    window.addEventListener('load', () => {
+      checkBackend();
+    });
+  </script>
+</body>
+</html>
