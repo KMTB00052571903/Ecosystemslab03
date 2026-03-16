@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000' // Ajustar para el backend
+const API_URL = 'https://ecosystemslab03-backend.vercel.app'
 
 // --- Autenticación Tienda ---
 export async function loginStore(username, password) {

@@ -1,6 +1,6 @@
-console.log('🔥 SERVER.TS SE ESTÁ EJECUTANDO');
-console.log('📁 Directorio actual:', process.cwd());
-console.log('🔧 NODE_ENV:', process.env.NODE_ENV);
+//console.log('🔥 SERVER.TS SE ESTÁ EJECUTANDO');
+//console.log('📁 Directorio actual:', process.cwd());
+//console.log('🔧 NODE_ENV:', process.env.NODE_ENV);
 
 import express, { Application } from 'express'
 import cors from 'cors'
