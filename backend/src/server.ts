@@ -2,7 +2,7 @@ console.log('🔥 SERVER.TS SE ESTÁ EJECUTANDO');
 console.log('📁 Directorio actual:', process.cwd());
 console.log('🔧 NODE_ENV:', process.env.NODE_ENV);
 
-import express, { Application } from 'express'  // ← SOLO UNA VEZ
+import express, { Application } from 'express'
 import cors from 'cors'
 
 import authRoutes from './routes/auth'
@@ -18,7 +18,7 @@ const app: Application = express()
 app.use(cors())
 app.use(express.json())
 
-// Ruta de prueba en la raíz
+// ✅ RUTA RAÍZ - AHORA RESPONDERÁ A /
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Backend de Ecosystemslab03 funcionando!',
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   })
 })
 
-// Ruta de health check
+// ✅ HEALTH CHECK
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', service: 'backend' })
 })
