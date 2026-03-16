@@ -2,14 +2,26 @@
   "version": 2,
   "builds": [
     {
-      "src": "**",
+      "src": "dist/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "consumer/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "delivery/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "store/index.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "src": "/api/(.*)",
+      "dest": "dist/server.js"
     },
     {
       "src": "/consumer(/.*)?",
@@ -22,6 +34,10 @@
     {
       "src": "/store(/.*)?",
       "dest": "/store/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
     }
   ]
 }
